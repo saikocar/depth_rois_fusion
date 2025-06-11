@@ -1,0 +1,23 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='depth_rois_fusion',
+            executable='depth_rois_fusion_node',
+            name='depth_rois_fusion_node',
+            output='screen',
+            parameters=[{
+                "pointcloud_topic": "/sensing/lidar/concatenated/pointcloud",
+                "camera_info_topic": "/sensing/camera/roscube/front_wide/camera_info",
+                "rois_topic": "/perception/object_recognition/detection/rois0",
+                "depth_image_topic": "/camera/depth_image",
+                "depth_rois_image_topic": "/camera/depth_rois_image",
+                "out_camera_info_topic": "/camera/camera_info",
+                "rectangle_color": [0, 255, 0],
+                "text_color": [255, 0, 0]
+            }]
+        )
+    ])
+
