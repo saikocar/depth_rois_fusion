@@ -16,7 +16,9 @@ def generate_launch_description():
                 "depth_rois_image_topic": "/camera/depth_rois_image",
                 "out_camera_info_topic": "/camera/camera_info",
                 "rectangle_color": [0, 255, 0],
-                "text_color": [255, 0, 0]
+                "text_color": [255, 0, 0],
+                "rois_depth_msg_topic": "/camera/rois_depth",
+                "depth_rois_marker_topic": "/camera/rois_depth_marker"
             }]
         )
     ])

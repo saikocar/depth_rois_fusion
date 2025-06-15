@@ -19,6 +19,7 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(tf2_eigen REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(tier4_perception_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 
 include_directories(
   include
@@ -42,6 +43,7 @@ ament_target_dependencies(depth_rois_fusion_node
   tf2_eigen
   Eigen3
   tier4_perception_msgs
+  visualization_msgs
 )
 
 target_link_libraries(depth_rois_fusion_node ${OpenCV_LIBS})
