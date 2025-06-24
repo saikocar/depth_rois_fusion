@@ -4,10 +4,11 @@ from ament_index_python.packages import get_package_share_directory
 import yaml
 import os
 
-def load_param_yaml_section(path, section):
+def load_ros_parameters(path, section):
     with open(path, 'r') as f:
         all_params = yaml.safe_load(f)
-    return all_params.get(section, {})
+    section_data = all_params.get(section, {})
+    return section_data.get('ros__parameters', {}) 
 
 def generate_launch_description():
     config_path = os.path.join(
@@ -16,7 +17,7 @@ def generate_launch_description():
         'config.yaml'
     )
 
-    params = load_param_yaml_section(config_path, 'depth_rois_fusion_node')
+    params = load_ros_parameters(config_path, 'depth_rois_fusion_node')
 
     return LaunchDescription([
         Node(
